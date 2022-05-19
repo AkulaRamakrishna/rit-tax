@@ -1,0 +1,55 @@
+application:
+    email:
+        to: ${EMAIL_TO}
+    sftp:
+        rootFolder: ${APPLICATION_SFTP_ROOT_FOLDER}
+    rest:
+        clientId: ${CLIENT_ID}
+        clientSecret: ${CLIENT_SECRET}
+        oauth2URL: ${OAUTH2_URL}
+        xcenterURL: ${XCENTER_URL}
+
+endpoints:
+    health:
+        sensitive: false
+    restart:
+        enabled: true
+    shutdown:
+        enabled: true
+
+logging:
+    level:
+        com:
+            rogers: DEBUG
+
+ribbon:
+    ServerListRefreshInterval: 1000
+
+server:
+    port: 8080
+
+#TODO: figure out why I need this here and in bootstrap.yml
+spring:
+    application:
+        name: rit-tax
+    datasource:
+        url: ${DATASOURCE_URL}
+        username: ${DATASOURCE_USERNAME}
+        password: ${DATASOURCE_PASSWORD}
+    mail:
+        host: ${EMAIL_HOST}
+        port: ${EMAIL_PORT}
+        username: ${EMAIL_USERNAME}
+        password: ${EMAIL_PASSWORD}
+        properties:
+            mail:
+                smtp:
+                    auth: ${EMAIL_SMTP_AUTH:true}
+                    starttls:
+                        enable: ${EMAIL_SMTP_STARTTLS_ENABLE:true}
+                        required: ${EMAIL_SMTP_STARTTLS_REQUIRED:true}
+            personal: ${EMAIL_PERSONAL}
+            keystore:
+                location: ${KEY_STORE_LOCATION:${JAVA_HOME}/lib/security/cacerts}
+                password: ${KEY_STORE_PASSWORD:changeit}
+                type: ${KEY_STORE_TYPE:JKS}

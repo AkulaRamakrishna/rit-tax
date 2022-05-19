@@ -1,0 +1,16 @@
+config {
+    info {
+        description = 'Core Service: Rit Weighted Average Cost'
+        inceptionYear = '2021'
+    }
+}
+
+subprojects {
+    dependencies {
+        constraints {
+            configurations.all { Configuration c ->
+                add(c.name, 'com.rogers:sid-models:1.6.3')
+            }
+        }
+    }
+}

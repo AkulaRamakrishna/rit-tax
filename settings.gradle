@@ -1,0 +1,18 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        maven {
+            url = "${artifactory_url}/${artifactory_repoKey}"
+            credentials {
+                username artifactory_username
+                password artifactory_password
+            }
+        }
+    }
+    dependencies {
+        classpath 'com.rogers.gradle:parentbuild-spring-boot:1.5.104'
+    }
+}
+apply plugin: 'com.rogers.gradle.parentbuild.spring-boot'
+
+rootProject.name = 'rit-tax'
